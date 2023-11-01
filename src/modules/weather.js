@@ -21,7 +21,7 @@ function parseWeather(weatherData) {
     name: weatherData.location.name,
     country: weatherData.location.country,
     temp: weatherData.current.temp_c,
-    condition:  weatherData.current.condition.text,
+    condition: weatherData.current.condition.text,
     wind: weatherData.current.wind_kph,
   };
 
