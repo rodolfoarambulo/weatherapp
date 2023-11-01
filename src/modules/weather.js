@@ -9,7 +9,7 @@ async function getWeather(userLocation) {
       throw new Error("No matching location.");
     } else {
       const weatherData = await response.json();
-      parseWeather(weatherData);
+      return parseWeather(weatherData);
     }
   } catch (e) {
     console.log(e);
@@ -17,9 +17,15 @@ async function getWeather(userLocation) {
 }
 
 function parseWeather(weatherData) {
-  console.log(`${weatherData.location.name}, ${weatherData.location.country}`);
-  console.log(`${weatherData.current.temp_c}°C, ${weatherData.current.condition.text}`);
-  console.log(`Wind: ${weatherData.current.wind_kph} km/h`);
+  const weather = {
+    name: weatherData.location.name,
+    country: weatherData.location.country,
+    temp: weatherData.current.temp_c,
+    condition:  weatherData.current.condition.text,
+    wind: weatherData.current.wind_kph,
+  };
+
+  return weather;
 }
 
 export default getWeather;

@@ -1,3 +1,3 @@
 import getWeather from "./modules/weather";
 
-console.log(getWeather('quezon city'));
+getWeather('quezon city').then(console.log);
